@@ -17,6 +17,8 @@ section {
   border-radius: 30px;
   box-shadow: 0 18px 35px rgba(242, 140, 177, 0.1);
 }
+
+    
 body {
   margin: 0;
   font-family: 'Inter', sans-serif;
@@ -310,6 +312,73 @@ body::before {
       font-size: 0.95rem;
       color: #4b647a;
     }
+
+    .love-list,
+.things-grid,
+.when-list {
+  max-width: 100%;
+}
+img {
+  height: auto;
+}
+.download-btn {
+  min-height: 48px;
+  line-height: 48px;
+}
+
+
+    @media (max-width: 768px) {
+
+  body {
+    font-size: 15px;
+  }
+
+  .page-border {
+    padding: 24px;
+  }
+
+  section {
+    padding: 50px 16px;
+    border-radius: 22px;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  h2 {
+    font-size: 1.6rem;
+  }
+
+  .landing {
+    min-height: auto;
+    padding-top: 80px;
+    padding-bottom: 80px;
+  }
+
+  .landing-image {
+    width: 260px;
+    margin-top: 30px;
+  }
+
+  .timeline {
+    padding-left: 20px;
+  }
+
+  .event::before {
+    left: -28px;
+  }
+
+  .event img {
+    max-width: 100%;
+  }
+
+  .download-btn {
+    width: 100%;
+    max-width: 260px;
+  }
+}
+
   </style>
 </head>
 
@@ -647,3 +716,4 @@ body::before {
 </div>
 </body>
 </html>
+

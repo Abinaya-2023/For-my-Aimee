@@ -265,6 +265,7 @@ body {
 }
 
 
+
 body::before {
   content: "";
   position: fixed;
@@ -336,6 +337,18 @@ body::before {
 img {
   height: auto;
 }
+
+    html, body {
+  overflow-x: hidden;
+}
+
+
+    @media (max-width: 768px) {
+  .page-border {
+    padding: 16px; /* NOT 24, NOT 40 */
+  }
+}
+
 
 
 
@@ -728,5 +741,6 @@ img {
 </div>
 </body>
 </html>
+
 
 

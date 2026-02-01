@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Where a Rose Found Her Daisy</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400&display=swap" rel="stylesheet">
+
+  <style>
+    
+section {
+  padding: 90px 20px;
+  max-width: 900px;
+  margin: auto;
+  background: rgba(255, 250, 252, 0.9); /* very light blush, less than borders */
+  border-radius: 30px;
+  box-shadow: 0 18px 35px rgba(242, 140, 177, 0.1);
+}
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  background-color: #fff0f5; /* solid pink only */
+  color: #4a1c2d;
+  line-height: 1.9;
+}
+
+.letter-section {
+  text-align: center;
+}
+
+.letter-intro {
+  font-size: 1.1rem;
+  margin-top: 30px;
+}
+
+.letter-sub {
+  font-size: 0.95rem;
+  margin: 18px 0 40px;
+  opacity: 0.8;
+  line-height: 1.7;
+}
+
+.letter-btn {
+  font-size: 0.95rem;
+  padding: 14px 36px;
+}
+
+
+.page-border::before {
+  content: "";
+  position: fixed;
+  top: 12px;
+  left: 12px;
+  right: 12px;
+  bottom: 12px;
+  pointer-events: none;
+
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100'%3E%3Ctext x='10' y='30' font-size='12'%3E💗%3C/text%3E%3Ctext x='70' y='80' font-size='10'%3E💗%3C/text%3E%3C/svg%3E");
+  background-repeat: repeat;
+
+  opacity: 0.25;
+  border-radius: 36px;
+}
+
+.read-when {
+  text-align: center;
+}
+
+.today-section {
+  text-align: center;
+}
+
+.distance-map {
+  margin-top: 40px;
+  max-width: 520px;
+  width: 100%;
+  border-radius: 24px;
+  box-shadow: 0 18px 40px rgba(242, 140, 177, 0.18);
+}
+
+.when-list p {
+  font-size: 1.1rem;
+  margin: 18px 0;
+  opacity: 0;
+  animation: fadeInWhen 0.8s ease forwards;
+}
+
+.when-list p:nth-child(1) { animation-delay: 0.2s; }
+.when-list p:nth-child(2) { animation-delay: 0.4s; }
+.when-list p:nth-child(3) { animation-delay: 0.6s; }
+.when-list p:nth-child(4) { animation-delay: 0.8s; }
+.when-list p:nth-child(5) { animation-delay: 1s; }
+
+.when-note {
+  margin-top: 40px;
+  font-style: italic;
+  opacity: 0.85;
+}
+
+@keyframes fadeInWhen {
+  to {
+    opacity: 1;
+  }
+}
+
+
+    h1, h2 {
+      font-family: 'Playfair Display', serif;
+      text-align: center;
+      font-weight: 600;
+    }
+
+    h1 { font-size: 2.6rem; }
+    h2 { font-size: 2rem; margin-bottom: 40px; }
+
+    .center { text-align: center; }
+
+    .landing {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .timeline {
+      border-left: 2px solid #f3a6c8;
+      padding-left: 30px;
+    }
+
+    .event {
+      margin-bottom: 60px;
+      position: relative;
+    }
+
+    .event::before {
+      content: "❀";
+      position: absolute;
+      left: -40px;
+      top: 0;
+      color: #f28cb1;
+    }
+
+    .event img {
+      width: 100%;
+      max-width: 420px;
+      border-radius: 16px;
+      margin-top: 14px;
+      display: block;
+    }
+
+    .letter {
+      background: #ffffff;
+      padding: 45px;
+      border-radius: 20px;
+      max-width: 600px;
+      margin: auto;
+    }
+
+    .page-border::before {
+  animation: borderMove 35s linear infinite;
+}
+
+@keyframes borderMove {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 300px 300px;
+  }
+}
+.page-border {
+  position: relative;
+  padding: 80px;
+}
+
+
+
+    .download-btn {
+      display: inline-block;
+      margin-top: 25px;
+      padding: 14px 34px;
+      background: #f28cb1;
+      color: white;
+      text-decoration: none;
+      border-radius: 30px;
+      font-size: 0.95rem;
+    }
+
+    @keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
+}
+
+.landing-image {
+  display: block;
+  margin: 50px auto 0 auto;
+  width: 380px;
+  max-width: 90%;
+  animation: float 4s ease-in-out infinite;
+}
+
+.landing {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.event {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s ease-out;
+}
+
+.event.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.little-things .things-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.little-things .things-grid span {
+  background: rgba(255, 230, 240, 0.9);
+  padding: 10px 16px;
+  border-radius: 999px;
+  font-size: 0.95rem;
+  box-shadow: 0 6px 14px rgba(242, 140, 177, 0.15);
+}
+.little-things p {
+  position: relative;
+  padding-left: 28px;
+  margin: 14px 0;
+}
+
+.little-things p::before {
+  content: "♡";
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: #f28cb1;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 12px;
+  pointer-events: none;
+
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Ctext x='10' y='30' font-size='12'%3E💗%3C/text%3E%3Ctext x='70' y='90' font-size='10'%3E💗%3C/text%3E%3C/svg%3E");
+  background-repeat: repeat;
+
+  opacity: 0.22;
+  border-radius: 40px;
+
+  animation: borderMove 40s linear infinite;
+  z-index: 0; /* VERY IMPORTANT */
+}
+
+
+.why-love {
+  text-align: center;
+}
+
+.love-intro {
+  font-size: 1.3rem;
+  margin: 30px auto 50px;
+  opacity: 0.9;
+  font-style: italic;
+}
+
+.love-lines p {
+  font-size: 1.05rem;
+  margin: 22px 0;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: revealLove 0.7s ease forwards;
+}
+
+/* staggered reveal */
+.love-lines p:nth-child(1) { animation-delay: 0.2s; }
+.love-lines p:nth-child(2) { animation-delay: 0.4s; }
+.love-lines p:nth-child(3) { animation-delay: 0.6s; }
+.love-lines p:nth-child(4) { animation-delay: 0.8s; }
+.love-lines p:nth-child(5) { animation-delay: 1s; }
+.love-lines p:nth-child(6) { animation-delay: 1.2s; }
+.love-lines p:nth-child(7) { animation-delay: 1.4s; }
+.love-lines p:nth-child(8) { animation-delay: 1.6s; }
+.love-lines p:nth-child(9) { animation-delay: 1.8s; }
+.love-lines p:nth-child(10) { animation-delay: 2s; }
+.love-lines p:nth-child(11) { animation-delay: 2.2s; }
+
+@keyframes revealLove {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+    footer {
+      text-align: center;
+      padding: 70px 20px;
+      font-size: 0.95rem;
+      color: #4b647a;
+    }
+  </style>
+</head>
+
+<body>
+<div class="page-border">
+<!-- LANDING -->
+<section class="landing center">
+  <h1>Two People and One love, blooming at our own pace.</h1>
+  <p>Different flowers, the same season.</p>
+
+  <img 
+    src="Daisy and Rose.png"
+    alt="A pink rose and a yellow daisy together"
+    class="landing-image"
+  >
+</section>
+
+
+
+<!-- TIMELINE -->
+<section>
+  <h2>Us, in order.</h2>
+  <div class="timeline">
+
+    <!-- EVENT 1 -->
+    <div class="event">
+      <strong>Oct 11, 2025 — Meeting You on Schmooze</strong><br>
+      Meeting you online for the first time and talking for hours. I still remember your first text asking if “A” stood for Amazing. From that day, we moved to Instagram and talked endlessly about placements, jobs and the roles I liked. You said swiping right on Schmooze came with benefits - including a referral 😂. You even planned a hiring strategy and made it your mission to land me a job before Nov 1 (my birthday). You called it “Mission Jobs.” I started calling you Batman from day one.
+      <img src="event1.png">
+    </div>
+
+    <!-- EVENT 2 -->
+    <div class="event">
+      <strong>Oct 12, 2025 — First Google Meet</strong><br>
+      You asked me out before leaving to Delhi, but I had classes. We talked about pets, your wish to be a pet owner someday and my placement journey. Then we had our first Google Meet to discuss my resume. I heard your voice for the first time - calm, reassuring and warm.
+      <img src="event2.jpg">
+    </div>
+
+    <!-- EVENT 3 -->
+    <div class="event">
+      <strong>Oct 13, 2025 — Instagram Blend & WhatsApp Beginnings</strong><br>
+      You sent me an Instagram Blend request, shared referrals and I gave you my number. That day, we started talking on WhatsApp - all night till 2 AM, turning Oct 13 into Oct 14 effortlessly. You called me “Mommy” and said I gave Monica Geller vibes. From that day, we were the same team 💪 #OneTeam
+      <img src="event3.jpg">
+    </div>
+
+    <!-- EVENT 4 -->
+    <div class="event">
+      <strong>Oct 15, 2025 (near 1 AM) — First Voice Note</strong><br>
+      You had a flight to Delhi and I had classes the next day. We made a bet about whether you’d reach the airport early - and you did, proving once again that you’re a gentleman. We waited to see the flight direction, hoping it would fly over Anna University. That night, you started calling me Bee. You talked about being my boyfriend, your no-divorce policy 😂, kids and how both families should be happy. I shared my family story and my conditions too. #OneTeam
+      <img src="event4.jpg">
+    </div>
+
+    <!-- EVENT 5 -->
+    <div class="event">
+      <strong>Oct 16, 2025 — “Are You Not Scared?”</strong><br>
+      After endless flirting, criteria discussions and even a SWOT analysis, you asked me if I was scared of waking up next to you for the next 50 years. You asked for 7 kisses a day - every day. You said you were my safe space and not like other people.
+      <img src="event5.png">
+    </div>
+
+    <!-- EVENT 6 -->
+    <div class="event">
+      <strong>Oct 17, 2025 — The Code Word “Green Lantern”</strong><br>
+      After stories and your idea of a perfect date, you introduced the code word “Green Lantern.” You explained the Kamal Haasan reference from Vettaiyadu Vilaiyadu and told me you liked me.
+      <img src="event6.jpeg">
+    </div>
+
+    <!-- EVENT 7 -->
+    <div class="event">
+      <strong>Oct 18, 2025 — “I Missed You”</strong><br>
+      After I cleared something with my friend, we spoke again. You said you missed me the entire day and wanted to tell me you loved me. You said you had the most genuine conversations with me. I felt so happy like I had returned home.
+      <img src="event7.jpg">
+    </div>
+
+    <!-- EVENT 8 -->
+    <div class="event">
+      <strong>Oct 22, 2025 — Asking to Meet You</strong><br>
+      After realizing my overthinking was unnecessary and that I truly liked you, I asked if we could meet within an hour without wasting your time. You agreed, kindly and happily. That decision changed everything and it was one of the best decisions I have ever made. And if I was given another chance to choose, I would definitely do the same.
+      <img src="event8.jpeg">
+    </div>
+
+    <!-- EVENT 9 -->
+    <div class="event">
+      <strong>Oct 28, 2025 — First Call, First Date, First Gift</strong><br>
+      You reached Chennai, shaved your beard because I liked it that way, and called me to calm my nerves - our first call. You took me to Ciclo Café, gifted me a pink rose crochet, asked the question, sent the Green Lantern and we officially became us. Pure happiness.
+      <img src="event9.jpeg">
+    </div>
+
+    <!-- EVENT 10 -->
+    <div class="event">
+      <strong>Oct 30, 2025 — Nee Kavithaigala</strong><br>
+      You played Nee Kavithaigala for me - my favorite gift ever. We went to Soy Soy, held hands, kissed and I told you that day that we were going to marry each other.
+      <img src="event10.jpg">
+    </div>
+
+    <!-- EVENT 11 -->
+    <div class="event">
+      <strong>Nov 1, 2025 — My Birthday</strong><br>
+      You were the first to wish me. We started a ritual - you’d always tell me what you were doing at my age. We went to the temple, had breakfast, bought lipstick and a watch and took our first picture together. My happiest birthday.
+      <img src="event11.jpeg">
+    </div>
+
+    <!-- EVENT 12 -->
+    <div class="event">
+      <strong>Nov 2, 2025 — Walking, Zaitoon & Us</strong><br>
+      After my NPTEL exam, I came to meet you. We walked in Indiranagar Park, you kissed me near the cricket ground and later at Zaitoon we sat close, shared juice, took our favourite blurry picture and I fell in love with you a little more that day.
+      <img src="event12.jpeg">
+    </div>
+
+    <!-- EVENT 13 -->
+    <div class="event">
+      <strong>Nov 6, 2025 — Our First Kiss</strong><br>
+      On my farewell day, I wore a saree and came to meet you. You loved seeing me like that. You held my waist tightly, the rain poured and that’s when we shared our first kiss. I kissed you for the first time too, leaving a lipstick mark on your cheek with the lipstick you bought for me. A perfect first.
+      <img src="event13.jpeg">
+    </div>
+
+    <!-- EVENT 14 -->
+    <div class="event">
+      <strong>Nov 8, 2025 — Beach Date & First Proper Hug</strong><br>
+      We went to the beach together. We walked, talked and you bought me my favorite buns. I hugged you properly for the first time and I smelled like you the entire day. I didn’t want the moment to end.
+      <img src="event14.jpg">
+    </div>
+
+    <!-- EVENT 15 -->
+    <div class="event">
+      <strong>Nov 11, 2025 — Childhood Pictures</strong><br>
+      You shared your childhood photos with me. Seeing you as a child - cute, sweet, soft and innocent made my heart melt. I loved every version of you, including the little one.
+      <img src="event15.jpeg">
+    </div>
+
+    <!-- EVENT 16 -->
+    <div class="event">
+      <strong>Nov 21, 2025 — Twinning for the First Time</strong><br>
+      We both wore lavender that day. Matching colors, matching energy. You hugged me, kissed me and I loved how naturally we looked like we belonged together.
+      <img src="event16.jpeg">
+    </div>
+
+    <!-- EVENT 17 -->
+    <div class="event">
+      <strong>Dec 3, 2025 — Rain, Backseat & First Hickey</strong><br>
+      On a rainy day, we went to our spot and spent time together in the backseat. We explored each other with trust and comfort. You gave me my first hickey and everything felt safe, respectful and intimate.
+      <img src="event17.jpeg">
+    </div>
+
+    <!-- EVENT 18 -->
+    <div class="event">
+      <strong>Dec 16, 2025 — Singing for You</strong><br>
+      While I was in my hometown, I missed you a lot. I spammed your WhatsApp with songs and love letters. You lovingly called my singing “rhymes” 😂 - but you still listened to every one of them.
+      <img src="event18.jpg">
+    </div>
+
+    <!-- EVENT 19 -->
+    <div class="event">
+      <strong>Dec 21, 2025 — My First Flower</strong><br>
+      You plucked a flower near your house and gave it to me. Something so small, yet so meaningful. I placed it in my hair and carried it with so much happiness.
+      <img src="event19.jpeg">
+    </div>
+
+    <!-- EVENT 20 -->
+    <div class="event">
+      <strong>Dec 24, 2025 — Love Letter & First Protein Shake</strong><br>
+      Before the year ended, I surprised you with another love letter and dark chocolate. We went to Ciclo Café, played with our legs under the table and shared smiles and kisses. I also gave you your first protein shake - a tiny moment that meant a lot.
+      <img src="event20.jpeg">
+    </div>
+
+    <!-- EVENT 21 -->
+    <div class="event">
+      <strong>Jan 1, 2026 — New Year Ritual</strong><br>
+      We welcomed the New Year together by eating grapes. Later, we met and you wore the shirt I gifted you. We shared protein shake, hot chocolate and French fries - starting the year with warmth and love.
+      <img src="event21.jpg">
+    </div>
+
+    <!-- EVENT 22 -->
+    <div class="event">
+      <strong>Jan 2, 2026 — Mercely’s Date</strong><br>
+      We walked to Mercely’s for ice cream. You said I looked hot that day. You hugged me so tightly that I felt crushed - in the best possible way.
+      <img src="event22.jpeg">
+    </div>
+
+    <!-- EVENT 23 -->
+    <div class="event">
+      <strong>Jan 3, 2026 — First Love Letter From You</strong><br>
+      We couldn’t meet as planned, but you wrote me a handwritten love letter instead. It meant everything. You also shared your business idea with me. I felt trusted, loved and deeply connected to you.
+      <img src="event23.jpeg">
+    </div>
+
+    <!-- EVENT 24 -->
+    <div class="event">
+      <strong>Jan 4, 2026 — Writer’s Café & The Flowers</strong><br>
+      We went to Writer’s Café. You gave me two flowers - a daisy and a rose. We played with paper rockets, talked endlessly and you behaved like a happy child. Watching you like that made me fall even more.
+      <img src="event24.jpeg">
+    </div>
+
+    <!-- EVENT 25 -->
+    <div class="event">
+      <strong>Jan 12, 2026 — Chocolate Day</strong><br>
+      You bought me chocolates because I was about to get my periods. You carefully chose what was good for me. I felt deeply cared for.
+      <img src="event25.jpg">
+    </div>
+
+    <!-- EVENT 26 -->
+    <div class="event">
+      <strong>Jan 14, 2026 — Video Calls Before Goodbye</strong><br>
+      We video-called before you left Chennai. We enjoyed each other’s presence, talked for a long time and didn’t want to hang up. Even distance felt softer with you.
+      <img src="event26.jpeg">
+    </div>
+
+    <!-- EVENT 27 -->
+    <div class="event">
+      <strong>Jan 15, 2026 — My Superkeeper</strong><br>
+      You received your performance review and shared it with me. I felt incredibly proud. You are truly a superkeeper - in work and in life.
+      <img src="event27.jpeg">
+    </div>
+
+    <!-- EVENT 28 -->
+    <div class="event">
+      <strong>Jan 26, 2026 — Where the Flowers Bloomed</strong><br>
+      We went for a walk in the park, had gelato at Delish and took so many pictures. That day, I gave myself to you completely - feeling safe, respected and deeply loved. I love you so much, Mr. Tanuj
+      <img src="event28.jpeg">
+    </div>
+
+  </div>
+</section>
+
+<!-- LITTLE THINGS -->
+<section class="little-things">
+  <h2>Little things I remember about you</h2>
+  <div class="things-grid">
+    <span>You love tiramisu and coffee - and you own way too many blue outfits.</span>
+    <span>You love your family deeply.</span>
+    <span>You hate Mondays.</span>
+    <span>You love oversized T-shirts.</span>
+    <span>You love baby pink and peach.</span>
+    <span>You get ticklish when I kiss you near your collarbone.</span>
+    <span>You love black cars.</span>
+    <span>You are Batman - always.</span>
+    <span>You care about being healthy and going to the gym.</span>
+    <span>You have the softest lips.</span>
+    <span>Your love language is physical touch.</span>
+  </div>
+</section>
+
+<!-- WHY I LOVE YOU -->
+<section class="why-love">
+  <h2>Why I love you</h2>
+
+  <p class="love-intro">
+    Not because you’re perfect.<br>
+    But because of the way you are.
+  </p>
+
+  <div class="love-lines">
+    <p>I love your voice.</p>
+    <p>I love the way you say “sollunga madam.”</p>
+    <p>I love that when I ask you to smile, you actually do.</p>
+    <p>I love the way you hold my waist, hug me tight and kiss me.</p>
+    <p>I love that you check if you hurt me after hard conversations.</p>
+    <p>I love the kiss you give me after our goodnight calls.</p>
+    <p>I love the way you touch my hair and gently rub my scalp.</p>
+    <p>I love the way you hold my hand.</p>
+    <p>I love when you take pictures of me.</p>
+    <p>I love the effort you put into growing and becoming better every day.</p>
+    <p>I love your responsibility, your patience and your kindness.</p>
+  </div>
+</section>
+
+<section class="read-when">
+  <h2>Read this when</h2>
+
+  <div class="when-list">
+    <p>You miss me</p>
+    <p>You're tired</p>
+    <p>You’re overthinking</p>
+    <p>You’re smiling already</p>
+    <p>You just want to feel close</p>
+  </div>
+
+  <p class="when-note">
+    I’ll still be here.
+  </p>
+</section>
+<!-- DISTANCE -->
+<section class="center today-section">
+  <h2>Today</h2>
+  <p>Different cities this Valentine’s Day.</p>
+  <p>But what we feel hasn’t moved an inch.</p>
+
+  <img 
+    src="CtoC.png"
+    alt="Map showing distance between Chennai and Coimbatore"
+    class="distance-map"
+  >
+</section>
+
+
+<!-- LETTER DOWNLOAD -->
+<section class="letter-section">
+  <h2>A letter for you</h2>
+
+  <p class="letter-intro">
+    I didn’t put this on the screen for a reason.
+  </p>
+
+  <p class="letter-sub">
+    This is meant to be read slowly.  
+    In your own time.  
+    Maybe when you’re alone.
+  </p>
+
+  <a class="download-btn letter-btn" href="Love Letter for Valentine's.pdf" download>
+    Download the letter
+  </a>
+</section>
+
+<footer>
+  A daisy and a rose don’t bloom the same way. <br>
+  But side by side, they make a garden worth choosing everyday.
+</footer>
+
+<script>
+  const events = document.querySelectorAll('.event');
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('show');
+      }
+    });
+  }, {
+    threshold: 0.2
+  });
+
+  events.forEach(event => observer.observe(event));
+</script>
+
+</div>
+</body>
+</html>
